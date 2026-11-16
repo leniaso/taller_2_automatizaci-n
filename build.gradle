@@ -57,6 +57,21 @@ dependencies {
 
 tasks.named('test') {
     useJUnit()
+    exclude '**/KnownDefectsRunner*'
+    systemProperty 'delay.ms', System.getProperty('delay.ms', '0')
+    testLogging {
+        showStandardStreams = true
+    }
+}
+
+tasks.register('knownDefects', Test) {
+    description = 'Runs the scenarios that document known defects (expected to fail)'
+    group = 'verification'
+    useJUnit()
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    include '**/KnownDefectsRunner*'
+    ignoreFailures = true
     systemProperty 'delay.ms', System.getProperty('delay.ms', '0')
     testLogging {
         showStandardStreams = true

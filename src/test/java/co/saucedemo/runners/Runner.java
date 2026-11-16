@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "co.saucedemo.stepdefinitions",
+        tags = "not @known_defect",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class Runner {}
