@@ -17,6 +17,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actors.OnStage;
+import co.saucedemo.questions.DistinctProductImages;
 
 import java.util.List;
 
@@ -105,6 +106,12 @@ public class CatalogStepDefinition {
                 seeThat(ProductDetail.price(), equalTo(price)));
     }
 
+    @Then("the product list shows {int} different image(s)")
+    public void theProductListShowsDifferentImages(int expected) {
+        OnStage.theActorInTheSpotlight().should(
+                seeThat(DistinctProductImages.count(), equalTo(expected)));
+    }
+    
     private List<Product> toProducts(DataTable table) {
         return table.asList().stream().map(Product::named).toList();
     }

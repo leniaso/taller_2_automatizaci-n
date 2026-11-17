@@ -21,3 +21,9 @@ Feature: Browse the product catalog
       | Name (Z to A)       |
       | Price (low to high) |
       | Price (high to low) |
+
+
+  Scenario: Each product has its own image
+    Given the user is on the login page
+    When the user logs in as "standard_user" with password "secret_sauce"
+    Then the product list shows 6 different images

@@ -32,6 +32,9 @@ public class InventoryPage {
     public static final Target PRODUCT_LINK =
             Target.the("link of {0}").locatedBy(
                     "//a[.//div[@data-test='inventory-item-name'][normalize-space()='{0}']]");
+                    
+    public static final Target PRODUCT_IMAGES =
+            Target.the("product images").located(By.cssSelector("img.inventory_item_img"));
 
     private InventoryPage() {}
 }

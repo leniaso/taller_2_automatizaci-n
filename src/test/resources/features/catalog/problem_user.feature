@@ -48,7 +48,15 @@ Feature: Catalog behavior for the problem user
     Then the cart badge shows 0
 
   @known_defect @DEF-05
-  Scenario: Opening a product shows its details
+  Scenario Outline: Opening a product shows its details
     Given the user is logged in as "problem_user"
-    When the user opens the details of "Sauce Labs Bike Light"
-    Then the product details show "Sauce Labs Bike Light" priced at "$9.99"
+    When the user opens the details of "<product>"
+    Then the product details show "<product>" priced at "<price>"
+
+    Examples: Opens a different product
+      | product               | price |
+      | Sauce Labs Bike Light | $9.99 |
+
+    Examples: Opens the item not found page
+      | product                  | price  |
+      | Sauce Labs Fleece Jacket | $49.99 |
