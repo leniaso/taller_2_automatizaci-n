@@ -35,6 +35,18 @@ public class InventoryPage {
                     
     public static final Target PRODUCT_IMAGES =
             Target.the("product images").located(By.cssSelector("img.inventory_item_img"));
+            
+    public static final Target PRODUCT_BUTTON =
+            Target.the("action button of {0}").locatedBy(
+                    "//div[@data-test='inventory-item']"
+                    + "[.//div[@data-test='inventory-item-name'][normalize-space()='{0}']]"
+                    + "//button");
+
+    public static final Target PRODUCT_PRICE =
+            Target.the("price of {0}").locatedBy(
+                    "//div[@data-test='inventory-item']"
+                    + "[.//div[@data-test='inventory-item-name'][normalize-space()='{0}']]"
+                    + "//div[@data-test='inventory-item-price']");
 
     private InventoryPage() {}
 }

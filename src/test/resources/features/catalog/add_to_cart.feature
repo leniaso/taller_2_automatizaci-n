@@ -17,3 +17,18 @@ Feature: Add products to the cart
       | Sauce Labs Bike Light |
       | Sauce Labs Onesie     |
     Then the cart badge shows 3
+
+
+  Scenario Outline: The button changes to Remove after adding a product
+    Given the user is logged in as "standard_user"
+    When the user adds "<product>" to the cart
+    Then the button of "<product>" shows "Remove"
+
+    Examples:
+      | product                           |
+      | Sauce Labs Backpack               |
+      | Sauce Labs Bike Light             |
+      | Sauce Labs Bolt T-Shirt           |
+      | Sauce Labs Fleece Jacket          |
+      | Sauce Labs Onesie                 |
+      | Test.allTheThings() T-Shirt (Red) |

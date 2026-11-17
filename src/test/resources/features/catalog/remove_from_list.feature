@@ -18,3 +18,9 @@ Feature: Remove products from the product list
       | Sauce Labs Onesie   |
     When the user removes "Sauce Labs Onesie" from the product list
     Then the cart badge shows 1
+
+  Scenario: The button changes back to Add to cart after removing a product
+    Given the user is logged in as "standard_user"
+    And the user has added "Sauce Labs Backpack" to the cart
+    When the user removes "Sauce Labs Backpack" from the product list
+    Then the button of "Sauce Labs Backpack" shows "Add to cart"
