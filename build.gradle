@@ -9,6 +9,7 @@ plugins {
 	id 'java'
     id 'eclipse'
     id 'idea'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.34'
 }
 
 group 'co'
@@ -62,6 +63,7 @@ tasks.named('test') {
     testLogging {
         showStandardStreams = true
     }
+    finalizedBy 'aggregate'
 }
 
 tasks.register('knownDefects', Test) {

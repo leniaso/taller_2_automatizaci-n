@@ -1,7 +1,15 @@
 pluginManagement {
     repositories {
         mavenLocal()
+        mavenCentral()
         gradlePluginPortal()
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == 'net.serenity-bdd.serenity-gradle-plugin') {
+                useModule("net.serenity-bdd:serenity-gradle-plugin:${requested.version}")
+            }
+        }
     }
 }
 rootProject.name = 'Taller_automatizacion_E2E'
